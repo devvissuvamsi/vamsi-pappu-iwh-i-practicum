@@ -18,16 +18,38 @@ h1 {
 }
 
 .card {
+    position: relative;
     flex-basis: 31%;
     margin: 1rem 0.4rem;
     padding: 1rem 0.4rem 2.5rem 0.4rem;
     border: solid 1px lightgrey;
     border-radius: 15px;
-    box-shadow: 3px 2px 6px lightgrey;
+    box-shadow: 3px 2px 8px rgba(100, 100, 255, 0.2);
 }
+
+.card:hover {
+    background-color: #eef2ff;
+    transform: translateY(-3px);
+    transition: all 0.2s ease-in-out;
+    background-color: #50aeda;
+}
+
 
 .card__email {
     font-size: 1rem;
+}
+
+.card__name {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card__role,
+.card__debut {
+  font-size: 14px;
+  color: #666;
+  margin: 4px 0;
 }
 
 .form-wrapper {
@@ -38,7 +60,9 @@ h1 {
     border: solid 1px lightgrey;
     border-radius: 15px;
     box-shadow: 3px 2px 6px lightgrey;
+    background-color: #f7faff;
 }
+
 
 label, input {
     margin-top: 5px;
@@ -46,13 +70,86 @@ label, input {
     font-size: inherit;
 }
 
-input[type="text"] {
-    padding: .25rem;
+input[type="submit"] {
+    background: linear-gradient(to right, #4e9af1, #3a7bd5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
-input[type="submit"] {
-    background-color: lightgrey;
+input[type="submit"]:hover {
+    background: linear-gradient(to right, #3a7bd5, #4e9af1);
+    transform: translateY(-2px);
+}
+
+
+input[type="text"],
+select {
+    padding: 0.25rem;
+    font-size: inherit;
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.add-player-button {
+    background: linear-gradient(to right, #4e9af1, #3a7bd5);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
     border: none;
-    padding: .375rem 1rem;
-    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 1rem;
+    transition: background 0.3s ease;
+}
+
+.add-player-button:hover {
+    background: linear-gradient(to right, #3a7bd5, #4e9af1);
+}
+
+.back-button {
+    background: linear-gradient(to right, #ff6961, #ff4b4b);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.back-button:hover {
+    background: linear-gradient(to right, #ff4b4b, #ff6961);
+}
+
+
+.edit-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(to right, #ef9292, #ef9292);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    z-index: 1;
+}
+
+.edit-button:hover {
+    background: linear-gradient(to right, #ff6961, #ff4b4b);
 }

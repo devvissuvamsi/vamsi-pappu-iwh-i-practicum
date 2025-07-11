@@ -1,0 +1,5 @@
+{
+  "watch": ["index.js", "views/", "public/"],
+  "ext": "js pug css",
+  "ignore": ["node_modules"]
+}
