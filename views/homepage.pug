@@ -1,0 +1,23 @@
+doctype html
+html 
+  head 
+    title= title
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="/css/style.css")
+  body    
+    h1 Cricket Players
+
+    form(action='/update-cobj', method='get')
+      button.add-player-button(type="button", onclick="window.location='/update-cobj'") Add Player
+
+    .cards 
+      each record in data
+        .card 
+          a.edit-button(href="/update-cobj?id=" + record.id) ✏️
+
+          h2.card__name #{record.properties.player_name}
+          p.card__role Role: #{record.properties.role}
+          p.card__debut Debut Year: #{record.properties.debut_year}
+          p.card__debut Batting Style: #{record.properties.batting_style}
+          p.card__debut Is Captain: #{record.properties.is_captain === 'true' || record.properties.is_captain === true ? 'Yes' : 'No'}
+

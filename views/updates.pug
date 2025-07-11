@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1= title
+
+    button.back-button(type="button", onclick="window.location='/'") ← Return to Homepage
+
+    form.form-wrapper(action="/update-cobj" method="POST")
+      if record
+        input(type="hidden", name="id", value=record.id)
+
+      label(for="player_name") Player Name
+      input(type="text", name="player_name", required, value=record && record.properties && record.properties.player_name || '')
+
+      label(for="role") Role
+      select(name="role")
+        option(value="Batsman", selected=record && record.properties && record.properties.role === "Batsman") Batsman
+        option(value="AllRounder", selected=record && record.properties && record.properties.role === "AllRounder") AllRounder
+        option(value="Bowler", selected=record && record.properties && record.properties.role === "Bowler") Bowler
+
+      label(for="debut_year") Debut Year
+      input(type="text", name="debut_year", value=record && record.properties && record.properties.debut_year || '')
+
+      label(for="batting_style") Batting Style
+      select(name="batting_style")
+        option(value="Right-Handed", selected=record && record.properties && record.properties.batting_style === "Right-Handed") Right-Handed
+        option(value="Left-Handed", selected=record && record.properties && record.properties.batting_style === "Left-Handed") Left-Handed
+
+      label(for="is_captain") Is Captain
+      select(name="is_captain")
+        option(value="true", selected=record && record.properties && record.properties.is_captain === "true") Yes
+        option(value="false", selected=record && record.properties && record.properties.is_captain === "false") No
+
+      input(
+        type="submit",
+        value=isUpdate ? "Update Player" : "Add Player"
+      )
